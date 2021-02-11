@@ -39,5 +39,8 @@
     ],
     "publishConfig": {
         "access": "restricted"
+    },
+    "dependencies": {
+        "@actions/core": "^1.2.6"
     }
 }
