@@ -7,7 +7,8 @@
         "declaration": true,
         "moduleResolution": "node",
         "strictNullChecks": true,
-        "noUnusedLocals": true
+        "noUnusedLocals": true,
+        "outDir": "./dist"
     },
     "typeAcquisition": {
         "enable": true
