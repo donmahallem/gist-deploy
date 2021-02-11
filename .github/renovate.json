@@ -1,0 +1,42 @@
+{
+    "automerge": true,
+    "labels": [
+        "dependencies"
+    ],
+    "baseBranches": [
+        "dev"
+    ],
+    "extends": [
+        "config:base"
+    ],
+    "packageRules": [
+        {
+            "depTypeList": [
+                "devDependencies"
+            ],
+            "automerge": true
+        },
+        {
+            "depTypeList": [
+                "dependencies"
+            ],
+            "updateTypes": [
+                "minor",
+                "patch",
+                "pin",
+                "digest",
+                "lockFileMaintenance",
+                "rollback",
+                "bump"
+            ],
+            "automerge": true
+        },
+        {
+            "depTypeList": [
+                "peerDependencies"
+            ],
+            "automerge": true,
+            "rangeStrategy": "replace"
+        }
+    ]
+}
