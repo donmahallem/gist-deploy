@@ -40,7 +40,8 @@
         "access": "restricted"
     },
     "dependencies": {
-        "@actions/core": "^1.2.6"
+        "@actions/core": "^1.2.6",
+        "ajv": "^7.1.0"
     },
     "devDependencies": {
         "@types/chai": "4.2.15",
