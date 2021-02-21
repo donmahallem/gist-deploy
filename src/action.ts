@@ -1,3 +1,7 @@
+/**
+ * Source https://github.com/donmahallem/deploy-gist
+ */
+
 import * as core from "@actions/core";
 import * as github from '@actions/github'
 import { syncFiles } from '@donmahallem/sync-gist';

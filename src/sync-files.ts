@@ -1,3 +1,7 @@
+/**
+ * Source https://github.com/donmahallem/deploy-gist
+ */
+
 import fs from 'fs'
 import path from 'path'
 import * as core from '@actions/core'

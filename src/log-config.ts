@@ -1,3 +1,7 @@
+/**
+ * Source https://github.com/donmahallem/deploy-gist
+ */
+
 import { info, startGroup, endGroup } from '@actions/core'
 import { IConfig, InputFile } from "./inputs";
 

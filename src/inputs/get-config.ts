@@ -1,7 +1,11 @@
+/**
+ * Source https://github.com/donmahallem/deploy-gist
+ */
+
 import * as core from '@actions/core'
 import { resolveInputFiles } from './parse-config';
 import { parseConfigFile } from './parse-config-file';
-import { IConfig, IConfigFile, InputFile } from './types';
+import { IConfig, IConfigFile, IInputFile } from './types';
 
 const KEY_GIST_ID: string = 'gist_id';
 const KEY_GITHUB_SECRET: string = 'github_secret';
@@ -18,7 +22,7 @@ export const getConfig: () => Promise<IConfig> = async (): Promise<IConfig> => {
     const file: string = core.getInput('file');
 
     const fileConfig: IConfigFile = await parseConfigFile(config_file);
-    const gistFiles: InputFile[] = resolveInputFiles(fileConfig.files);
+    const gistFiles: IInputFile[] = resolveInputFiles(fileConfig.files);
     core.info(config);
     core.info(directory);
     core.info(file);

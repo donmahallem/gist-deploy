@@ -1,3 +1,7 @@
+/**
+ * Source https://github.com/donmahallem/deploy-gist
+ */
+
 import { JSONSchemaType } from 'ajv';
 import Ajv, { ValidateFunction } from 'ajv';
 import { IConfig, IConfigFile } from './types';
