@@ -5,7 +5,6 @@
 import { basename, resolve } from 'path';
 import { IInputFile, OptionalNameInputFile } from './types';
 
-
 export const resolveInputFiles: (files: OptionalNameInputFile[]) => IInputFile[] = (files: OptionalNameInputFile[]): IInputFile[] => {
     return files
         .map((inp: OptionalNameInputFile): IInputFile => {

@@ -8,11 +8,11 @@ import { syncFiles } from '@donmahallem/sync-gist';
 import { getConfig, IConfig } from './inputs';
 import { logConfig } from './log-config';
 
-export const action = async () => {
+export const action = async (): Promise<void> => {
     const config: IConfig = await getConfig();
-    const octokit = github.getOctokit(config.github_secret);
+    const octokit: any = github.getOctokit(config.github_secret);
     logConfig(config);
-    if (config.dry_run !== true) {
+    if (!config.dry_run) {
         syncFiles(config, octokit);
     } else {
         core.info(`Not syncing files. Dry run!`);

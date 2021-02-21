@@ -2,8 +2,8 @@
  * Source https://github.com/donmahallem/deploy-gist
  */
 
-import { info, startGroup, endGroup } from '@actions/core';
-import { IConfig, InputFile } from './inputs';
+import { endGroup, info, startGroup } from '@actions/core';
+import { InputFile, IConfig } from './inputs';
 
 export const logConfig: (config: IConfig) => void = (config: IConfig): void => {
     startGroup('Config');
