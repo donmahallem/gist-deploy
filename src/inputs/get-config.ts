@@ -2,7 +2,7 @@
  * Source https://github.com/donmahallem/deploy-gist
  */
 
-import * as core from '@actions/core'
+import * as core from '@actions/core';
 import { resolveInputFiles } from './parse-config';
 import { parseConfigFile } from './parse-config-file';
 import { IConfig, IConfigFile, IInputFile } from './types';
@@ -32,6 +32,6 @@ export const getConfig: () => Promise<IConfig> = async (): Promise<IConfig> => {
         github_secret,
         gist_id,
         files: gistFiles,
-    }
-    return inp
-}
+    };
+    return inp;
+};

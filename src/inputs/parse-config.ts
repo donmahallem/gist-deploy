@@ -2,7 +2,7 @@
  * Source https://github.com/donmahallem/deploy-gist
  */
 
-import { basename, resolve, } from 'path';
+import { basename, resolve } from 'path';
 import { IInputFile, OptionalNameInputFile } from './types';
 
 
@@ -14,4 +14,4 @@ export const resolveInputFiles: (files: OptionalNameInputFile[]) => IInputFile[]
                 source: resolve(inp.source),
             };
         });
-}
+};

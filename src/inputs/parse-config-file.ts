@@ -13,4 +13,4 @@ export const parseConfigFile: (filePath: string) => Promise<IConfigFile> = (file
             validateConfig(parsedJson);
             return parsedJson;
         });
-}
+};
