@@ -11,7 +11,7 @@
         "build:action": "ncc build ./src/action.ts -o ./dist/action",
         "build:readme": "npx @appnest/readme generate --input ../package_readme_blueprint.md --config readme_config.json",
         "test": "mocha --config ./.mocharc.yml",
-        "test:coverage": "nyc --nycrc-path ../../.nycrc.json npm run test",
+        "test:coverage": "nyc --nycrc-path ./.nycrc.json npm run test",
         "lint": "tslint -c tslint.json -p tsconfig.json src/**/*.ts",
         "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json src/**/*.ts",
         "docs": "typedoc --options ../../typedoc.json"
