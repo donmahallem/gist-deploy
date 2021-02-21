@@ -36,7 +36,7 @@ jobs:
       - name: Run Build
         run: npm run build
       - name: Run Test
-        run: npm run test:coverage --no-sort
+        run: npm run test:coverage
       - name: Upload Coverage to Coveralls
         uses: coverallsapp/github-action@master
         with:
@@ -44,9 +44,9 @@ jobs:
           flag-name: ${{ matrix.os }}_node${{ matrix.node }}
           parallel: true
       - name: Run Lint
-        run: npm run lint --no-sort
+        run: npm run lint
       - name: Run Docs
-        run: npm run docs --no-sort
+        run: npm run docs
   finish:
     needs: test_suite
     name: Finish Test
