@@ -6,7 +6,9 @@
     "private": true,
     "keywords": [],
     "scripts": {
-        "build": "tsc --project ./tsconfig.json",
+        "build": "npm run build:lib && npm run build:action",
+        "build:lib": "tsc --project ./tsconfig.lib.json --outDir ./dist/lib",
+        "build:action": "ncc build ./src/action.ts -o ./dist/action",
         "build:readme": "npx @appnest/readme generate --input ../package_readme_blueprint.md --config readme_config.json",
         "test": "mocha --config ../../.mocharc.yml",
         "test:coverage": "nyc --nycrc-path ../../.nycrc.json npm run test",
@@ -41,13 +43,16 @@
     },
     "dependencies": {
         "@actions/core": "^1.2.6",
+        "@actions/github": "^4.0.0",
         "ajv": "^7.1.0"
     },
     "devDependencies": {
+        "@octokit/types": "6.8.4",
         "@types/chai": "4.2.15",
         "@types/mocha": "8.2.0",
         "@types/node": "14.14.25",
         "@types/sinon": "9.0.10",
+        "@vercel/ncc": "0.27.0",
         "chai": "4.3.0",
         "commitizen": "4.2.3",
         "mocha": "8.2.1",

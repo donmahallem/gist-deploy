@@ -8,7 +8,8 @@
         "moduleResolution": "node",
         "strictNullChecks": true,
         "noUnusedLocals": true,
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "sourceRoot": "./src",
     },
     "typeAcquisition": {
         "enable": true
@@ -16,5 +17,8 @@
     "exclude": [
         "node_modules"
     ],
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "include": [
+        "./src/*.ts"
+    ],
 }
