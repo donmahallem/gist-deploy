@@ -8,3 +8,6 @@ inputs:
   github_secret:
     description: 'A github secret to use'
     required: true
+  gist_id:
+    description: 'The gist id to push to'
+    required: true
