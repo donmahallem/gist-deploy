@@ -30,3 +30,4 @@ jobs:
         uses: ./
         with:
           github_secret: ${{ secrets.github_token }}
+          gist_id: 'test_gist_id'
