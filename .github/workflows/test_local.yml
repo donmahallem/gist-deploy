@@ -28,3 +28,5 @@ jobs:
         run: npm run build
       - name: Run it
         uses: ./
+        with:
+          github_secret: ${{ secrets.github_token }}

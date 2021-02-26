@@ -4,3 +4,7 @@ runs:
   using: node12
   main: dist/action/index.js
   pre: npm install && npm build:action
+inputs:
+  github_secret:
+    description: 'A github secret to use'
+    required: true
