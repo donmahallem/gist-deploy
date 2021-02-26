@@ -5,7 +5,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 import { syncFiles } from '@donmahallem/sync-gist';
-import { IGithubConfig, parseGithubConfig } from './inputs';
+import { parseGithubConfig, IGithubConfig } from './inputs';
 import { logConfig } from './log-config';
 
 export const action = async (): Promise<void> => {

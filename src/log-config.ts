@@ -3,17 +3,32 @@
  */
 
 import { endGroup, info, startGroup } from '@actions/core';
-import { IConfig, IGithubConfig, IInputFile } from './inputs';
+import { IConfig, IGithubConfig } from './inputs';
+
+const logObject: (obj: object) => void = (obj: object): void => {
+    for (const [key, value] of Object.entries(obj)) {
+        if (typeof value === 'object') {
+        } else if (typeof value === 'string') {
+
+        }
+        switch (typeof value) {
+            case 'object':
+                startGroup(key);
+                logObject(value);
+                endGroup();
+                break;
+            case 'string':
+            case 'boolean':
+            case 'number':
+            case 'undefined':
+                info(`${key}: ${value}`);
+                break;
+        }
+    }
+}
 
 export const logConfig: (config: IConfig | IGithubConfig) => void = (config: IConfig): void => {
     startGroup('Config');
-    info(`dry_run: ${config.dry_run}`);
-    info(`gist_id:'${config.gist_id}'`);
-    info(`gist_secret:'${config.github_secret}'`);
-    startGroup(`files(${config.files.length})`);
-    config.files.forEach((file: IInputFile): void => {
-        info(`${file.source} => ${file.name}`);
-    });
-    endGroup();
+    logObject(config);
     endGroup();
 };
