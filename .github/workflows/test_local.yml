@@ -21,5 +21,10 @@ jobs:
         uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node }}
+      - name: Install Deps
+        run: |
+          npm ci
+      - name: Run Build
+        run: npm run build
       - name: Run it
         uses: ./
