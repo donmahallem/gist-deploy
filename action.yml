@@ -1,0 +1,6 @@
+name: 'gist-deploy'
+description: 'Copy files to gist'
+runs:
+  using: node14
+  main: dist/index.js
+  pre: npm install && npm build:action
