@@ -11,3 +11,6 @@ inputs:
   gist_id:
     description: 'The gist id to push to'
     required: true
+  dry_run:
+    description: 'Runs the actione except from pushing the data'
+    required: false
