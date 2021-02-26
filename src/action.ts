@@ -18,4 +18,7 @@ export const action = async (): Promise<void> => {
         core.info(`Not syncing files. Dry run!`);
     }
 };
-action();
+action()
+    .catch((err: any): void => {
+        core.setFailed(err?.message || 'An error occured');
+    });
