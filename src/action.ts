@@ -12,6 +12,7 @@ export const action = async (): Promise<void> => {
     const config: IGithubConfig = parseGithubConfig();
     const octokit: any = github.getOctokit(config.github_secret);
     logConfig(config);
+    logConfig({ arr: [{ cool: true }, 29.3], kk: 'yes' } as any);
     if (!config.dry_run) {
         syncFiles(config as any, octokit);
     } else {

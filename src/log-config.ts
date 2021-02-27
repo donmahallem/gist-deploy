@@ -7,21 +7,30 @@ import { IConfig, IGithubConfig } from './inputs';
 
 const logObject: (obj: object) => void = (obj: object): void => {
     for (const [key, value] of Object.entries(obj)) {
-        if (typeof value === 'object') {
-        } else if (typeof value === 'string') {
-
-        }
         switch (typeof value) {
             case 'object':
-                startGroup(key);
-                logObject(value);
-                endGroup();
+                if (Array.isArray(value)) {
+                    startGroup(`${key}[${value.length}]`);
+                    for (const item of value) {
+                        logObject(item);
+                    }
+                    endGroup();
+                } else {
+                    startGroup(key);
+                    logObject(value);
+                    endGroup();
+                }
                 break;
             case 'string':
+                info(`${key}: '${value}'`);
+                break;
             case 'boolean':
             case 'number':
             case 'undefined':
                 info(`${key}: ${value}`);
+                break;
+            case 'function':
+                info(`${key}: ${value.name ? value.name : 'function'}()`);
                 break;
         }
     }
