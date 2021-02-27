@@ -29,5 +29,6 @@ jobs:
       - name: Run it
         uses: ./
         with:
-          github_secret: ${{ secrets.github_token }}
-          gist_id: 'test_gist_id'
+          github-secret: ${{ secrets.github_token }}
+          gist-id: 'test_gist_id'
+          dry-run: true

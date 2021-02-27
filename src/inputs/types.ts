@@ -3,11 +3,15 @@
  */
 
 export interface IInputFile {
-    name: string;
+    name?: string;
     source: string;
 }
+export type K = Required<IInputFile>;
+export type RequiredNameInputFile = Required<IInputFile>
 
-export type OptionalNameInputFile = (Partial<Pick<IInputFile, 'name'>> & Omit<IInputFile, 'name'>);
+export type ParsedInputFile = Required<IInputFile> & {
+    content: string;
+}
 
 export interface IConfig {
     readonly dry_run: boolean;
@@ -17,5 +21,5 @@ export interface IConfig {
 }
 
 export interface IConfigFile {
-    readonly files: OptionalNameInputFile[];
+    readonly files: IInputFile[];
 }

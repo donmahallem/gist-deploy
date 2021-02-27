@@ -5,12 +5,15 @@ runs:
   main: dist/action/index.js
   pre: npm install && npm build:action
 inputs:
-  github_secret:
+  github-secret:
     description: 'A github secret to use'
     required: true
-  gist_id:
+  gist-id:
     description: 'The gist id to push to'
     required: true
-  dry_run:
-    description: 'Runs the actione except from pushing the data'
+  dry-run:
+    description: 'Runs the action except from pushing the data'
     required: false
+outputs:
+  files:
+    description: "Files synced as json array"

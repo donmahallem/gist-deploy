@@ -2,6 +2,6 @@
  * Source https://github.com/donmahallem/deploy-gist
  */
 
+export { handleGithubConfig } from './handle-github-config';
 export { IConfig, IInputFile } from './types';
-export { getConfig } from './get-config';
 export { IGithubConfig, parseGithubConfig } from './parse-github-config';
