@@ -1,6 +1,10 @@
+/**
+ * Source https://github.com/donmahallem/deploy-gist
+ */
+
 import { IInputFile } from '@donmahallem/sync-gist';
-import { IGithubConfig } from './parse-github-config';
 import { parseConfigFile } from './parse-config-file';
+import { IGithubConfig } from './parse-github-config';
 import { IConfigFile } from './types';
 
 export const handleGithubConfig = async (cfg: IGithubConfig): Promise<IInputFile[]> => {
@@ -10,4 +14,4 @@ export const handleGithubConfig = async (cfg: IGithubConfig): Promise<IInputFile
         gistFiles.push(...cfgFile.files);
     }
     return gistFiles;
-}
+};

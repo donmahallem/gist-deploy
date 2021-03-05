@@ -50,5 +50,5 @@ export const createConfigValidator: () => ((data: any) => true) = (): ((data: an
         } else {
             throw new Error('Unknown schema error');
         }
-    }
-}
+    };
+};

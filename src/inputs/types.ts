@@ -7,11 +7,11 @@ export interface IInputFile {
     source: string;
 }
 export type K = Required<IInputFile>;
-export type RequiredNameInputFile = Required<IInputFile>
+export type RequiredNameInputFile = Required<IInputFile>;
 
 export type ParsedInputFile = Required<IInputFile> & {
     content: string;
-}
+};
 
 export interface IConfig {
     readonly dry_run: boolean;

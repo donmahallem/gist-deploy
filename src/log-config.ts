@@ -8,6 +8,7 @@ import { IConfig, IGithubConfig } from './inputs';
 const logItem: (key: string, obj: object) => void = (key: string, obj: object): void => {
     switch (typeof obj) {
         case 'object':
+            // tslint:disable-next-line:no-null-keyword
             info(`${key}: ${JSON.stringify(obj, null, 2)}`);
             break;
         case 'string':
@@ -22,13 +23,13 @@ const logItem: (key: string, obj: object) => void = (key: string, obj: object): 
             info(`${key}: ${obj.name ? obj.name : 'function'}()`);
             break;
     }
-}
+};
 
 const logObject: (obj: object) => void = (obj: object): void => {
     for (const [key, value] of Object.entries(obj)) {
         logItem(key, value);
     }
-}
+};
 
 export const logConfig: (group: string, config: IConfig | IGithubConfig) => void =
     (group: string, config: IConfig): void => {
