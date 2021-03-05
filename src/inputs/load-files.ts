@@ -11,5 +11,5 @@ export const loadFiles: (sources: IInputFile[]) => Promise<ParsedInputFile[]> =
             sources.map((inp: IInputFile): Promise<ParsedInputFile> => {
                 return loadFile(inp);
             });
-        return await Promise.all(loadPromises);
+        return Promise.all(loadPromises);
     };
