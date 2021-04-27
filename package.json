@@ -45,7 +45,7 @@
         "@actions/core": "~1.2.7",
         "@actions/github": "~4.0.0",
         "@donmahallem/sync-gist": "~0.1.11",
-        "ajv": "~8.1.0"
+        "ajv": "~8.2.0"
     },
     "devDependencies": {
         "@octokit/types": "6.13.2",
