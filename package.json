@@ -55,7 +55,7 @@
         "@types/sinon": "10.0.0",
         "@vercel/ncc": "0.28.5",
         "chai": "4.3.4",
-        "commitizen": "4.2.3",
+        "commitizen": "4.2.4",
         "mocha": "8.4.0",
         "nyc": "15.1.0",
         "sinon": "10.0.0",
