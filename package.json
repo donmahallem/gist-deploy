@@ -44,7 +44,7 @@
     "dependencies": {
         "@actions/core": "~1.3.0",
         "@actions/github": "~5.0.0",
-        "@donmahallem/sync-gist": "~0.1.11",
+        "@donmahallem/sync-gist": "~0.1.13",
         "ajv": "~8.5.0"
     },
     "devDependencies": {
