@@ -51,7 +51,7 @@
         "@octokit/types": "6.18.1",
         "@types/chai": "4.2.20",
         "@types/mocha": "8.2.3",
-        "@types/node": "14.17.4",
+        "@types/node": "14.17.5",
         "@types/sinon": "10.0.2",
         "@vercel/ncc": "0.28.6",
         "chai": "4.3.4",
