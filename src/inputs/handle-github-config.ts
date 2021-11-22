@@ -1,11 +1,11 @@
-/**
- * Source https://github.com/donmahallem/deploy-gist
+/*
+ * Package @donmahallem/gist-deploy
+ * Source https://donmahallem.github.io/gist-deploy/
  */
 
-import { IInputFile } from '@donmahallem/sync-gist';
 import { parseConfigFile } from './parse-config-file';
 import { IGithubConfig } from './parse-github-config';
-import { IConfigFile } from './types';
+import { IConfigFile, IInputFile } from './types';
 
 export const handleGithubConfig = async (cfg: IGithubConfig): Promise<IInputFile[]> => {
     const gistFiles: IInputFile[] = [];
