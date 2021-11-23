@@ -1,5 +1,6 @@
-/**
- * Source https://github.com/donmahallem/deploy-gist
+/*
+ * Package @donmahallem/gist-deploy
+ * Source https://donmahallem.github.io/gist-deploy/
  */
 
 export interface IInputFile {
@@ -16,7 +17,7 @@ export type ParsedInputFile = Required<IInputFile> & {
 export interface IConfig {
     readonly dry_run: boolean;
     readonly github_secret: string;
-    readonly gist_id: string;
+    readonly gistId: string;
     readonly files: IInputFile[];
 }
 

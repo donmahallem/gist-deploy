@@ -1,11 +1,12 @@
-/**
- * Source https://github.com/donmahallem/deploy-gist
+/*
+ * Package @donmahallem/gist-deploy
+ * Source https://donmahallem.github.io/gist-deploy/
  */
 
 import { endGroup, info, startGroup } from '@actions/core';
 import { IConfig, IGithubConfig } from './inputs';
 
-const logItem: (key: string, obj: object) => void = (key: string, obj: object): void => {
+const logItem: (key: string, obj: unknown) => void = (key: string, obj: unknown): void => {
     switch (typeof obj) {
         case 'object':
             // tslint:disable-next-line:no-null-keyword
@@ -17,7 +18,7 @@ const logItem: (key: string, obj: object) => void = (key: string, obj: object): 
         case 'boolean':
         case 'number':
         case 'undefined':
-            info(`${key}: ${obj}`);
+            info(`${key}: undefined`);
             break;
         case 'function':
             info(`${key}: ${obj.name ? obj.name : 'function'}()`);
@@ -31,9 +32,8 @@ const logObject: (obj: object) => void = (obj: object): void => {
     }
 };
 
-export const logConfig: (group: string, config: IConfig | IGithubConfig) => void =
-    (group: string, config: IConfig): void => {
-        startGroup(group);
-        logObject(config);
-        endGroup();
-    };
+export const logConfig: (group: string, config: Partial<IConfig | IGithubConfig>) => void = (group: string, config: IConfig): void => {
+    startGroup(group);
+    logObject(config);
+    endGroup();
+};

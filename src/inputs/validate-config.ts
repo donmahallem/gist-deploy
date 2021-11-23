@@ -1,5 +1,6 @@
-/**
- * Source https://github.com/donmahallem/deploy-gist
+/*
+ * Package @donmahallem/gist-deploy
+ * Source https://donmahallem.github.io/gist-deploy/
  */
 
 import Ajv, { ErrorObject, JSONSchemaType, ValidateFunction } from 'ajv';
@@ -12,12 +13,14 @@ export const FILES_SCHEMA: JSONSchemaType<IConfig['files']> = {
         properties: {
             name: {
                 nullable: true,
-                pattern: '^([^\/]+)$',
+                // eslint-disable-next-line no-useless-escape
+                pattern: '^([^/]+)$',
                 type: 'string',
             },
             source: {
                 nullable: false,
-                pattern: '^(.+)\/([^\/]+)$',
+                // eslint-disable-next-line no-useless-escape
+                pattern: '^(.+)/([^/]+)$',
                 type: 'string',
             },
         },
@@ -39,7 +42,7 @@ export const CONFIG_FILE_SCHEMA: JSONSchemaType<IConfigFile> = {
 
 const ajvInstance: Ajv = new Ajv();
 ajvInstance.addSchema(FILES_SCHEMA);
-export const createConfigValidator: () => ((data: any) => true) = (): ((data: any) => true) => {
+export const createConfigValidator: () => (data: object) => true = (): ((data: object) => true) => {
     const validator: ValidateFunction<IConfigFile> = ajvInstance.compile(CONFIG_FILE_SCHEMA);
     return (data: any): true => {
         if (validator(data)) {

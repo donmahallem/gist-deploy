@@ -1,5 +1,6 @@
-/**
- * Source https://github.com/donmahallem/deploy-gist
+/*
+ * Package @donmahallem/gist-deploy
+ * Source https://donmahallem.github.io/gist-deploy/
  */
 
 import * as core from '@actions/core';
@@ -7,21 +8,22 @@ import * as github from '@actions/github';
 import { Endpoints } from '@octokit/types';
 import fs from 'fs';
 import path from 'path';
-import { IConfig } from './inputs/types';
+import { IGithubConfig } from './inputs';
 
-type CoreType = typeof core;
+export type CoreType = typeof core;
 type GistUpdateParamater = Endpoints['PATCH /gists/{gist_id}']['parameters'];
 type GistUpdateResponse = Endpoints['PATCH /gists/{gist_id}']['response'];
-export const syncFiles = async (config: IConfig, githubCore?: CoreType): Promise<void> => {
+export const syncFiles = async (config: IGithubConfig, githubCore?: CoreType): Promise<void> => {
     githubCore?.startGroup('Read file content');
     const workSpace: string = process.env.GITHUB_WORKSPACE as string;
-    const filePath: string = path.join(workSpace, config.gist_id);
+    const filePath: string = path.join(workSpace, config.gistId);
     const content: string = fs.readFileSync(filePath, 'utf-8');
     githubCore?.info(`[INFO] Done with file "${filePath}"`);
     githubCore?.endGroup();
 
     githubCore?.startGroup('Deploy to gist');
-    const octokit: any = github.getOctokit(config.github_secret);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const octokit: any = github.getOctokit(config.githubSecret);
     const fileName: string = path.basename(filePath);
     githubCore?.startGroup('Files to sync');
 
@@ -32,12 +34,13 @@ export const syncFiles = async (config: IConfig, githubCore?: CoreType): Promise
                 fileName,
             },
         },
-        gist_id: config.gist_id,
+        gist_id: config.gistId,
     };
-    githubCore?.info(`[INFO] Done with gist "${config.gist_id}/${fileName}"`);
-    const response: GistUpdateResponse = await octokit.gists.update(params);
+    githubCore?.info(`[INFO] Done with gist "${config.gistId}/${fileName}"`);
+    /* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
+    const response: GistUpdateResponse = (await octokit.gists.update(params)) as GistUpdateResponse;
 
-    githubCore?.info(`[INFO] Done with gist "${config.gist_id}/${fileName}" - ${response.status}`);
+    githubCore?.info(`[INFO] Done with gist "${config.gistId}/${fileName}" - ${response.status}`);
     githubCore?.endGroup();
 
     githubCore?.info('[INFO] Action successfully completed');

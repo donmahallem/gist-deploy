@@ -1,5 +1,6 @@
-/*!
- * Source https://github.com/donmahallem/deploy-gist
+/*
+ * Package @donmahallem/gist-deploy
+ * Source https://donmahallem.github.io/gist-deploy/
  */
 
 import { expect } from 'chai';

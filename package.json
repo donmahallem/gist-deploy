@@ -12,8 +12,10 @@
         "build:readme": "npx @appnest/readme generate --input ../package_readme_blueprint.md --config readme_config.json",
         "test": "mocha --config ./.mocharc.yml",
         "test:coverage": "nyc --nycrc-path ./.nycrc.json npm run test",
-        "lint": "tslint -c tslint.json -p tsconfig.json src/**/*.ts",
-        "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json src/**/*.ts",
+        "lint": "eslint -c ./.eslintrc.js --ext .ts ./src",
+        "postlint": "prettier --config ./.prettierrc src/**/*.ts --check",
+        "lint:fix": "eslint -c ./.eslintrc.js --ext .ts ./src --fix",
+        "postlint:fix": "prettier --config ./.prettierrc src/**/*.ts --write",
         "docs": "typedoc --options ./typedoc.json"
     },
     "homepage": "https://donmahallem.github.io/gist-deploy/",
@@ -48,6 +50,7 @@
         "ajv": "~8.8.2"
     },
     "devDependencies": {
+        "@donmahallem/eslint-config": "0.4.3",
         "@octokit/types": "6.29.0",
         "@types/chai": "4.2.22",
         "@types/mocha": "9.0.0",
@@ -56,11 +59,12 @@
         "@vercel/ncc": "0.32.0",
         "chai": "4.3.4",
         "commitizen": "4.2.4",
+        "eslint": "8.3.0",
         "mocha": "9.1.3",
         "nyc": "15.1.0",
+        "prettier": "2.4.1",
         "sinon": "12.0.1",
         "ts-node": "10.4.0",
-        "tslint": "6.1.3",
         "typedoc": "0.22.9",
         "typescript": "4.5.2"
     }
