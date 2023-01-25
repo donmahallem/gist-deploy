@@ -53,7 +53,7 @@
         "@types/mocha": "9.1.1",
         "@types/node": "18.11.18",
         "@types/sinon": "10.0.13",
-        "@vercel/ncc": "0.36.0",
+        "@vercel/ncc": "0.36.1",
         "chai": "4.3.7",
         "commitizen": "4.3.0",
         "mocha": "9.2.2",
