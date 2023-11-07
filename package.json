@@ -49,7 +49,7 @@
     },
     "devDependencies": {
         "@octokit/types": "6.41.0",
-        "@types/chai": "4.3.9",
+        "@types/chai": "4.3.10",
         "@types/mocha": "9.1.1",
         "@types/node": "20.8.10",
         "@types/sinon": "17.0.1",
