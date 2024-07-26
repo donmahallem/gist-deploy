@@ -1,0 +1,19 @@
+name: 'gist-deploy'
+description: 'Copy files to gist'
+runs:
+  using: node12
+  main: dist/action/index.js
+  pre: npm install && npm build:action
+inputs:
+  github-secret:
+    description: 'A github secret to use'
+    required: true
+  gist-id:
+    description: 'The gist id to push to'
+    required: true
+  dry-run:
+    description: 'Runs the action except from pushing the data'
+    required: false
+outputs:
+  files:
+    description: "Files synced as json array"
