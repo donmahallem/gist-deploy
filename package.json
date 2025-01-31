@@ -48,7 +48,7 @@
         "ajv": "~8.17.1"
     },
     "devDependencies": {
-        "@octokit/types": "6.41.0",
+        "@octokit/types": "13.8.0",
         "@types/chai": "4.3.16",
         "@types/mocha": "9.1.1",
         "@types/node": "20.14.12",
