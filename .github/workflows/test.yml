@@ -1,5 +1,5 @@
 name: Test
-on: [push,pull_request]
+on: [push, pull_request]
 
 jobs:
   test_suite:
@@ -8,7 +8,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [20, 22]
         #os: [ubuntu-latest, windows-latest]
         os: [ubuntu-latest]
     steps:
@@ -18,18 +18,7 @@ jobs:
         uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ matrix.node }}
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-      - name: Setup Cache
-        uses: actions/cache@v2.1.4
-        with:
-          path: |
-            ${{ steps.npm-cache.outputs.dir }}
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-node${{ matrix.node }}-npm-${{ hashFiles('**/package-lock.json') }}
+          cache: "npm"
       - name: Install Deps
         run: |
           npm ci
@@ -54,8 +43,8 @@ jobs:
     name: Finish Test
     runs-on: ubuntu-latest
     steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel-finished: true
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
